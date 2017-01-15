@@ -34,11 +34,11 @@ function calChange()
   	</tr>
   	<tr>
   		<td>รับเงินมา</td>
-  		<td><input type="text" name="txReceive" id = "txReceive" onchange="calChange();"></td>
+  		<td><input type="text" name="txReceive" id = "txReceive" onchange="calChange();" value ="<?php if(isset($_POST["txReceive"])) echo $_POST["txReceive"];?>"></td>
   	</tr>
   	<tr>
   		<td>เงินทอน</td>
-  		<td><input type="text" name="txChange" id="txChange" readonly></td>
+  		<td><input type="text" name="txChange" id="txChange" value ="<?php if(isset($_POST["txChange"])) echo $_POST["txChange"];?>" readonly></td>
   	</tr>
   	<tr>
   		<td colspan="2" align="center"><button type="submit" id="bnSubmit" >Submit</button></td>
@@ -48,23 +48,23 @@ function calChange()
   			<table width="100%">
   				<tr>
   					<td>แบงค์ 500</td>
-  					<td> <label id="bank500"><?php if( isset($result["bank500"])) echo $result["bank500"];?></label></td>
+  					<td> <label id="bank500"><?php if( isset($result["bank500"])) echo $result["bank500"]; else echo "-";?></label> ใบ</td>
   				</tr>
   				<tr>
   					<td>แบงค์ 100</td>
-  					<td> <label id="bank100"><?php if( isset($result["bank100"])) echo $result["bank100"];?></label></td>
+  					<td> <label id="bank100"><?php if( isset($result["bank100"])) echo $result["bank100"]; else echo "-";?></label> ใบ</td>
   				</tr>
   				<tr>
   					<td>แบงค์ 50</td>
-  					<td> <label id="bank50"><?php if( isset($result["bank50"])) echo $result["bank50"];?></label></td>
+  					<td> <label id="bank50"><?php if( isset($result["bank50"])) echo $result["bank50"]; else echo "-";?></label> ใบ</td>
   				</tr>
   				<tr>
   					<td>แบงค์ 20</td>
-  					<td> <label id="bank20"><?php if( isset($result["bank20"])) echo $result["bank20"];?></label></td>
+  					<td> <label id="bank20"><?php if( isset($result["bank20"])) echo $result["bank20"]; else echo "-";?></label> ใบ</td>
   				</tr>
   				<tr>
   					<td>แบงค์ 10</td>
-  					<td> <label id="bank10"><?php if( isset($result["bank10"])) echo $result["bank10"];?></label></td>
+  					<td> <label id="bank10"><?php if( isset($result["bank10"])) echo $result["bank10"]; else echo "-";?></label> ใบ</td>
   				</tr>
   			</table>
   		</td>
