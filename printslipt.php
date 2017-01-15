@@ -4,23 +4,34 @@ $data = array(
       'car_label' => "สฬ 5420",
       'province' => "กทม",
       'time' => "4.30",
-      'price' => 500,
+      'price' => 30,
       'first_hr' => 1,
-      'three_hr' => 1,
+      'three_hr' => 3,
+      'three_hr_price' => 10,
+      'four_hr' => 0.30,
+      'four_hr_price' => 20,
    ),
    array(
       'car_label' => "กข 1432",
       'province' => "ลำปาง",
       'time' => "14",
       'price' => 210,
-      'first_hr' => true,
+      'first_hr' => 1,
+      'three_hr' => 3,
+      'three_hr_price' => 10,
+      'four_hr' => 10,
+      'four_hr_price' => 200,
    ),
    array(
       'car_label' => "อง 1150",
       'province' => "กทม",
       'time' => "15",
-      'price' => 1150,
-      'first_hr' => true,
+      'price' => 30,
+      'first_hr' => 1,
+      'three_hr' => 3,
+      'three_hr_price' => 10,
+      'four_hr' => 11,
+      'four_hr_price' => 1140,
    ),
 );
 
@@ -48,7 +59,7 @@ if (!$result) {
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
    <style media="screen">
       html, body {
-         background-color: #F73897;
+         /*color: #F73897;*/
       }
    </style>
 </head>
@@ -83,14 +94,19 @@ if (!$result) {
                <td>Free</td>
             </tr>
             <tr>
-               <td>3 ชั่วโมงแรก</td>
-               <td></td>
-               <td></td>
+               <td>3 ชั่วโมง ต่อมา</td>
+               <td><?php echo $result['three_hr']; ?></td>
+               <td><?php echo $result['three_hr_price']; ?></td>
             </tr>
             <tr>
                <td>4 ชั่วโมง ขึ้นไป</td>
-               <td></td>
-               <td></td>
+               <td><?php echo $result['four_hr']; ?></td>
+               <td><?php echo $result['four_hr_price']; ?></td>
+            </tr>
+            <tr>
+               <td>รวม</td>
+               <td><?php echo $result['time']; ?></td>
+               <td><?php echo $result['price']; ?></td>
             </tr>
          </table>
       </div>
