@@ -5,10 +5,13 @@
 </head>
 <?php
 include ("classes/Calculate.php");
-/*if($_POST["txChange"] != "")
+if(isset($_POST["txChange"]))
 {
-
-}*/
+  //echo $_POST["txChange"]."<br>";
+  $clsCal = new Calculate();
+  $result = $clsCal->getChange( $_POST["txChange"]);
+  //echo "500 : " . $result["bank500"] . ", 100 : " . $result["bank100"] . ", 50 : " . $result["bank50"] . ", 20 : ".$result["bank20"].", 10 : ".$result["bank10"];
+}
 ?>
 <script >
 function calChange()
@@ -23,7 +26,7 @@ function calChange()
 
 </script>
 <body>
-  <form name="frmChange" action="calculate.php" method="post">
+  <form name="frmChange" action="calculate.php?total=<?php echo $_GET["total"];?>" method="post">
   <table width="500">
   	<tr>
   		<td>จำนวนเงิน</td>
@@ -35,33 +38,33 @@ function calChange()
   	</tr>
   	<tr>
   		<td>เงินทอน</td>
-  		<td><input type="text" name="txChange" id="txChange"></td>
+  		<td><input type="text" name="txChange" id="txChange" readonly></td>
   	</tr>
   	<tr>
-  		<td colspan="2" align="center"><button type="button" id="bnSubmit">Submit</button></td>
+  		<td colspan="2" align="center"><button type="submit" id="bnSubmit" >Submit</button></td>
   	</tr>
   	<tr colspan="2">
   		<td>
   			<table width="100%">
   				<tr>
   					<td>แบงค์ 500</td>
-  					<td> <label id="bank500">10</label></td>
+  					<td> <label id="bank500"><?php if( isset($result["bank500"])) echo $result["bank500"];?></label></td>
   				</tr>
   				<tr>
   					<td>แบงค์ 100</td>
-  					<td> <label id="bank100"></label></td>
+  					<td> <label id="bank100"><?php if( isset($result["bank100"])) echo $result["bank100"];?></label></td>
   				</tr>
   				<tr>
   					<td>แบงค์ 50</td>
-  					<td> <label id="bank50"></label></td>
+  					<td> <label id="bank50"><?php if( isset($result["bank50"])) echo $result["bank50"];?></label></td>
   				</tr>
   				<tr>
   					<td>แบงค์ 20</td>
-  					<td> <label id="bank20"></label></td>
+  					<td> <label id="bank20"><?php if( isset($result["bank20"])) echo $result["bank20"];?></label></td>
   				</tr>
   				<tr>
   					<td>แบงค์ 10</td>
-  					<td> <label id="bank10"></label></td>
+  					<td> <label id="bank10"><?php if( isset($result["bank10"])) echo $result["bank10"];?></label></td>
   				</tr>
   			</table>
   		</td>
