@@ -72,11 +72,11 @@ if (!$result) {
          <table class="table table-bordered">
             <tr>
                <td>เลขทะเบียนรถ : </td>
-               <td><?php echo $result['car_label'] ?></td>
+               <td id="CarId"><?php echo $result['car_label'] ?></td>
             </tr>
             <tr>
                <td>จังหวัด : </td>
-               <td><?php echo $result['province'] ?></td>
+               <td id="Provice"><?php echo $result['province'] ?></td>
             </tr>
          </table>
          <header>
@@ -90,23 +90,23 @@ if (!$result) {
             </tr>
             <tr>
                <td>1 ชั่วโมงแรก</td>
-               <td>1</td>
+               <td id="000">1</td>
                <td>Free</td>
             </tr>
             <tr>
                <td>3 ชั่วโมง ต่อมา</td>
-               <td><?php echo $result['three_hr']; ?></td>
+               <td id="001"><?php echo $result['three_hr']; ?></td>
                <td><?php echo $result['three_hr_price']; ?></td>
             </tr>
             <tr>
                <td>4 ชั่วโมง ขึ้นไป</td>
-               <td><?php echo $result['four_hr']; ?></td>
+               <td id="002"><?php echo $result['four_hr']; ?></td>
                <td><?php echo $result['four_hr_price']; ?></td>
             </tr>
             <tr>
                <td>รวม</td>
-               <td><?php echo $result['time']; ?></td>
-               <td><?php echo $result['price']; ?></td>
+               <td id="003"><?php echo $result['time']; ?></td>
+               <td id="Price"><?php echo $result['price']; ?></td>
             </tr>
          </table>
       </div>
